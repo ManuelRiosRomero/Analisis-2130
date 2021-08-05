@@ -1,0 +1,4 @@
+Este archivo de texto solo existe de manera temporal
+para permitir la carga de las carpetas a github.
+
+Será borrado una vez no sea necesario.
