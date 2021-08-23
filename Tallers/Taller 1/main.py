@@ -50,17 +50,19 @@ def PuntoFijoCalcular(funcion,funcion2, referencia, tolerancia, iter):
         
     if aux==1:
         print('\nLa raiz para esta funcion es: %0.8f y la funcion en este punto = %0.8f' % (x, funcion(x)))
+        print("Tolerancia: ",abs(funcion(x))," Iteraciones: ", iteracionN)
     else:
       print('El valor del punto fijo = %0.8f y  la funcion en este punto = %0.8f' % (x, funcion(x)))
+      print("Tolerancia: ",abs(funcion(x))," Iteraciones: ", iteracionN)
 #Lista de rangos para biseccion
 # para g -1 y 1, para h -1 y 1,  
 
 
 #Ejecucion
 #valor tolerancia
-TOL= 10**(-7)
+TOL= 10**(-4)
 #Numero de iteraciones
-n=100
+n=10000000
 #punto de referencia para punto fijo
 r=-1
 #Inicio intervalo biseccion
@@ -71,6 +73,7 @@ fin=3
 #fpuntofijo= lambda x: -1/(math.cos(x**2))
 gpuntofijo=lambda x: math.cos(x)
 hpuntofijo= lambda x: math.exp(x)-1
+hpuntofijoAlternativa= lambda x: math.log(1+x, math.exp(1))
 ipuntofijo = lambda x: 8/(27*(x**2-2*x+4/3))
 kpuntofijo = lambda x: 5/(x**2 - 2)
 
@@ -82,7 +85,7 @@ i = lambda x: x*x*x - 2*x*x + (4/3)*x - (8/27)
 k = lambda x: x*x*x - 2*x - 5
 
 #Se llama la funcion con los parametros(funcion, inicio del intervalo, fin del intervalo, numero de iteraciones, tolerancia)
-respuesta = funcion_biseccion(k,inicio,fin,n,TOL)
+respuesta = funcion_biseccion(h,inicio,fin,n,TOL)
 try:
   print('el resultado para el metodo de biseccion es: %0.8f'% respuesta)
 except OverflowError:
@@ -91,10 +94,10 @@ except TypeError:
     None
 #para saber el valor de la funcion en biseccion, cambiar la g por la funcion correspondiente.
 try:
-  print('el valor de la funcion en ese punto es: %0.8f'% k(respuesta))
+  print('el valor de la funcion en ese punto es: %0.8f'% h(respuesta))
 except OverflowError:
   None
 except TypeError:
   None
 #Se llama la funcion para el calculo por punto fijo de la forma (funcion, funcion aproximada, punto de referencia, tolerancia, numero de iteraciones)
-respuesta = PuntoFijoCalcular(k,kpuntofijo,r,TOL,n)
+respuesta = PuntoFijoCalcular(h,hpuntofijo,r,TOL,n)
