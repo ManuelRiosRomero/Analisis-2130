@@ -201,10 +201,10 @@ for i in range(int(min(xnnew)),int(max(xnnew))):
 Error = np.absolute(Error)
 ErrorR = np.absolute(ErrorR)
 
-print("el error maximo absoluto es:", max(f'{ErrorR:.4f}'))
-print("el error minimo absoluto es: ", min(f'{ErrorR:.4f}'))
-print("el error maximo relativo es:", max(f'{ErrorR:.4f}'))
-print("el error minimo relativo es: ", min(f'{ErrorR:.4f}'))
+print("el error maximo absoluto es:", max(Error))
+print("el error minimo absoluto es: ", min(Error))
+print("el error maximo relativo es:", max(ErrorR))
+print("el error minimo relativo es: ", min(ErrorR))
 
 #Indice de Jaccard
 
@@ -234,10 +234,10 @@ for i in range(len(yelim)):
 Error1 = np.absolute(Error1)
 ErrorR1 = np.absolute(ErrorR1)
 
-print("el error maximo absoluto es:", max(f'{Error1:.4f}'))
-print("el error minimo absoluto es: ", min(f'{Error1:.4f}'))
-print("el error maximo relativo es:", max(f'{Error1:.4f}'))
-print("el error minimo relativo es: ", min(f'{Error1:.4f}'))
+print("el error maximo absoluto es:", max(Error1))
+print("el error minimo absoluto es: ", min(Error1))
+print("el error maximo relativo es:", max(ErrorR1))
+print("el error minimo relativo es: ", min(ErrorR1))
 Indice_Jac = jaccard(yelim, auxf)
 
 print("El indice de Jaccard es: ", Indice_Jac)
