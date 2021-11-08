@@ -17,14 +17,14 @@ def f(a, y):
 #EULER
 def euler(f, x, y, h, m):
     a = []
-    b = []
+    
     for i in range(m):
         y = y + h*f(x, y)
         x = x + h
         y = round(y, 2)
         x = round(x, 2)
         a += [x]
-        b += [y]
+
     return [a, b]
 #REAL
 #sol = solve_ivp(f(a,y), [-10, 10], [0,1])
