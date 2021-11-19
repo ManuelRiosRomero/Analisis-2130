@@ -11,27 +11,30 @@ from matplotlib.pyplot import *
 import random
 from scipy.integrate import solve_ivp
 
-#Funcion
+#Ecuacion Diferencial 
 def f(a, y):
     return (-1 * a) * y 
-#EULER
+
+#Metodo de Euler
 def euler(f, x, y, h, m):
     a = []
-    
+    b = []
     for i in range(m):
         y = y + h*f(x, y)
         x = x + h
         y = round(y, 2)
         x = round(x, 2)
         a += [x]
-
+        b += [y]
     return [a, b]
 #REAL
 #sol = solve_ivp(f(a,y), [-10, 10], [0,1])
 #DATOS INICIALES
 m = 100 
-a0 = random.randrange(-10,10) 
-y0 = random.random()  
+a0 = -1
+y0 = 1 
+#a0 = random.randrange(-10,10) 
+#y0 = random.random()  
 #y0 = random.randrange(0,1)  
 h = 0.1  # Cantidad para el paso
 [x, y] = euler(f, a0, y0, h, m)
